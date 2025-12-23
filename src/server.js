@@ -2,10 +2,45 @@
 //nodemon atualiza o sistema toda vez que vc adiciona um novo arquivo
 //parei no minuto 09:21
 
-const express = require('express');
+import express from 'express';
+import { config } from 'dotenv';
+import { connectDB, disconnectDB } from './config/db.js';
+//Import Routes
+import movieRoutes from './routes/movieRoutes.js';
+
+config();
+connectDB();
 
 const app = express();
 
+//API Routes
+app.use("/movies", movieRoutes);
+
+//req: request, res: response
+
 const PORT = 5001;
 const server = app.listen(PORT, () => {
-    console.log(`Server running on PORT ${PORT}`)});
+    console.log(`Server running on PORT ${PORT}`);
+});
+
+process.on("unhandledRejection", async (err) => { //Se alguma Promise falhar e ninguém cuidar disso, para tudo com segurança
+  console.error("Unhandled Rejection:", err);
+  server.close(async () => {
+    await disconnectDB();
+    process.exit(1);
+  });
+});
+
+process.on("uncaughtException", async (err) => { //Erro grave no código → encerra o app na hora.
+  console.error("Uncaught Exception:", err);
+  await disconnectDB();
+  process.exit(1);
+});
+
+process.on("SIGTERM", async () => { //Aviso de desligamento → fecha tudo com educação.
+  console.log("SIGTERM received, shutting down gracefully");
+  server.close(async () => {
+    await disconnectDB();
+    process.exit(0);
+  });
+});
