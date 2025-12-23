@@ -19,4 +19,47 @@ model User {
   password String
 
   createdAt DateTime @default(now())
+
+  //Relacionamentos
+  movies Movie[] 
+  watchListItems WatchListItem[]
+}
+
+model Movie {
+  id String @id @default(uuid())
+  title String 
+  overview String? //a interrogação faz com que o campo seja opcional
+  ReleaseYear Int 
+  genres String[] @default([]) // uma lista/array
+  rustime Int?
+  posterUrl String?
+  createdBy String
+  createdAt DateTime @default(now())
+
+  //Relacionamentos
+  creator User @relation(fields: [createdBy], references: [id], onDelete: Cascade)
+  watchListItems WatchListItem[] //muitas listas terão esse filme
+}
+
+model WatchListItem {
+  id String @id @default(uuid())
+  userId String
+  movieId String
+  status WatchListStatus @default(PLANNED) // tipo customizado (enum), todo filme adicionado na lista será "planejado" como padrão
+  rating Int?
+  notes String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  //Relacionamentos
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  movie Movie @relation(fields: [movieId], references: [id], onDelete: Cascade)
+
+}
+
+enum WatchListStatus {
+  PLANNED
+  WATCHING
+  COMPLETED
+  DROPPED
 }
