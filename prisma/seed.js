@@ -8,7 +8,7 @@ const movies = [
   {
     title: "The Matrix",
     overview: "A computer hacker learns about the true nature of reality.",
-    releaseYear: 1999,
+    ReleaseYear: 1999,
     genres: ["Action", "Sci-Fi"],
     runtime: 136,
     posterUrl: "https://example.com/matrix.jpg",
@@ -17,7 +17,7 @@ const movies = [
   {
     title: "Inception",
     overview: "A thief who steals corporate secrets through dream-sharing technology.",
-    releaseYear: 2010,
+    ReleaseYear: 2010,
     genres: ["Action", "Sci-Fi", "Thriller"],
     runtime: 148,
     posterUrl: "https://example.com/inception.jpg",
@@ -26,7 +26,7 @@ const movies = [
   {
     title: "Interstellar",
     overview: "A team travels through a wormhole in space to ensure humanity’s survival.",
-    releaseYear: 2014,
+    ReleaseYear: 2014,
     genres: ["Adventure", "Drama", "Sci-Fi"],
     runtime: 169,
     posterUrl: "https://example.com/interstellar.jpg",
@@ -35,7 +35,7 @@ const movies = [
   {
     title: "The Dark Knight",
     overview: "Batman faces the Joker, a criminal mastermind spreading chaos in Gotham.",
-    releaseYear: 2008,
+    ReleaseYear: 2008,
     genres: ["Action", "Crime", "Drama"],
     runtime: 152,
     posterUrl: "https://example.com/dark-knight.jpg",
@@ -44,7 +44,7 @@ const movies = [
   {
     title: "Fight Club",
     overview: "An office worker forms an underground fight club that spirals out of control.",
-    releaseYear: 1999,
+    ReleaseYear: 1999,
     genres: ["Drama", "Thriller"],
     runtime: 139,
     posterUrl: "https://example.com/fight-club.jpg",
@@ -53,7 +53,7 @@ const movies = [
   {
     title: "Pulp Fiction",
     overview: "The lives of criminals intertwine in a series of violent stories.",
-    releaseYear: 1994,
+    ReleaseYear: 1994,
     genres: ["Crime", "Drama"],
     runtime: 154,
     posterUrl: "https://example.com/pulp-fiction.jpg",
@@ -62,7 +62,7 @@ const movies = [
   {
     title: "The Lord of the Rings: The Fellowship of the Ring",
     overview: "A hobbit begins a journey to destroy a powerful ring.",
-    releaseYear: 2001,
+    ReleaseYear: 2001,
     genres: ["Adventure", "Fantasy"],
     runtime: 178,
     posterUrl: "https://example.com/lotr-fellowship.jpg",
@@ -71,7 +71,7 @@ const movies = [
   {
     title: "The Godfather",
     overview: "The aging patriarch of an organized crime dynasty transfers control to his son.",
-    releaseYear: 1972,
+    ReleaseYear: 1972,
     genres: ["Crime", "Drama"],
     runtime: 175,
     posterUrl: "https://example.com/godfather.jpg",
@@ -80,7 +80,7 @@ const movies = [
   {
     title: "Forrest Gump",
     overview: "The story of a man with a low IQ who lives an extraordinary life.",
-    releaseYear: 1994,
+    ReleaseYear: 1994,
     genres: ["Drama", "Romance"],
     runtime: 142,
     posterUrl: "https://example.com/forrest-gump.jpg",
@@ -89,7 +89,7 @@ const movies = [
   {
     title: "Gladiator",
     overview: "A former Roman general seeks revenge against the corrupt emperor.",
-    releaseYear: 2000,
+    ReleaseYear: 2000,
     genres: ["Action", "Drama"],
     runtime: 155,
     posterUrl: "https://example.com/gladiator.jpg",

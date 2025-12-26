@@ -32,7 +32,7 @@ model Movie {
   overview String? //a interrogação faz com que o campo seja opcional
   ReleaseYear Int 
   genres String[] @default([]) // uma lista/array
-  rustime Int?
+  runtime Int?
   posterUrl String?
   createdBy String
   createdAt DateTime @default(now())
@@ -55,6 +55,8 @@ model WatchListItem {
   //Relacionamentos
   user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
   movie Movie @relation(fields: [movieId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, movieId])
 
 }
 

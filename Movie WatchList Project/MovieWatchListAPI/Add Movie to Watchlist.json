@@ -1,0 +1,30 @@
+{
+  "name": "Add Movie to Watchlist",
+  "request": {
+    "type": "http",
+    "url": "{{BaseURL}}/watchlist",
+    "scripts": {
+      "preRequest": "",
+      "postResponse": ""
+    },
+    "method": "POST",
+    "queryParams": [],
+    "headers": [
+      {
+        "id": 1766777439003,
+        "key": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViMTViNjIyLTM3ZDItNDA5ZS04ZGZiLWUyNmI2ZWRkNmNjMiIsImlhdCI6MTc2Njc3NDgzOSwiZXhwIjoxNzY3Mzc5NjM5fQ.ey_rFN8RDodPd7BYJrp_YjVTdp31u1_CrGTi2y8l9Ls",
+        "isEnabled": true,
+        "description": "",
+        "dataType": "string"
+      }
+    ],
+    "body": "{\n  \"movieId\": \"7823f889-773d-4209-8a5f-7e9ffca04b2b\",\n  \"status\": \"PLANNED\",\n  \"rating\": 9\n}",
+    "contentType": "application/json",
+    "auth": {
+      "currentAuthType": "INHERIT",
+      "authConfigStore": {}
+    },
+    "pathVariables": []
+  }
+}
