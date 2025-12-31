@@ -145,11 +145,13 @@ Ele especifica:
 
 ## Diferença entre Schema e Validator
 
-    Schema	                 Validator
-Define regras	         Executa a validação
-Descreve o formato	     Aplica o formato
-Não roda sozinho	     Roda na request
-Não bloqueia nada	     Bloqueia request inválida
+|     Schema    |     Validator      |
+|---------------|--------------------|
+| Define regras | Executa a validação |
+| Descreve o formato | Aplica o formato |
+| Não roda sozinho | Roda na request |
+| Não bloqueia nada | Bloqueia request inválida |
+
 
 Exemplo prático: 
 
