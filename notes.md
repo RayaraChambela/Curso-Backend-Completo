@@ -1,4 +1,4 @@
-Métodos HTTP:
+Métodos HTTP: Responsáveis pela comunicação do cliente - servidor
 
 GET -> Buscar dados, não altera nada no servidor, apenas lê.
 
