@@ -4,7 +4,7 @@ import { prisma } from "../config/db.js";
 export const addToWatchList = async (req, res) => {
   const { movieId, status, rating, notes } = req.body;
 
-  // 1) Verify movie exists
+  // Verify movie exists
   const movie = await prisma.movie.findUnique({
     where: { id: movieId },
   });
@@ -13,7 +13,7 @@ export const addToWatchList = async (req, res) => {
     return res.status(404).json({ error: "Movie not found" });
   }
 
-  // 2) Check if already added (for this user)
+  // Check if already added (for this user)
   const existingInWatchlist = await prisma.watchListItem.findFirst({
     where: { userId: req.user.id, movieId },
   });
@@ -22,7 +22,7 @@ export const addToWatchList = async (req, res) => {
     return res.status(400).json({ error: "Movie already in watchlist" });
   }
 
-  // 3) Create watchlist item
+  // Create watchlist item
   const watchlistItem = await prisma.watchListItem.create({
     data: {
       userId: req.user.id,
@@ -63,5 +63,42 @@ export const removeFromWatchList = async (req, res) => {
   return res.status(200).json({
     status: "success",
     message: "Movie removed from watchlist",
+  });
+};
+
+// PUT /watchlist/:id
+export const updateWatchlistItem = async (req, res) => {
+  const { status, rating, notes } = req.body;
+
+  // Find watchlist item and verify ownership
+  const watchlistItem = await prisma.watchListItem.findUnique({
+    where: { id: req.params.id },
+  });
+
+  if (!watchlistItem) {
+    return res.status(404).json({ error: "Watchlist item not found" });
+  }
+
+  // Ensure only owner can update
+  if (watchlistItem.userId !== req.user.id) {
+    return res
+      .status(403)
+      .json({ error: "Not allowed to update this watchlist item" });
+  }
+
+  // Build update data only with provided fields
+  const updateData = {};
+  if (status !== undefined) updateData.status = status;
+  if (rating !== undefined) updateData.rating = rating;
+  if (notes !== undefined) updateData.notes = notes;
+
+  const updatedItem = await prisma.watchListItem.update({
+    where: { id: req.params.id },
+    data: updateData,
+  });
+
+  return res.status(200).json({
+    status: "success",
+    data: { watchlistItem: updatedItem },
   });
 };

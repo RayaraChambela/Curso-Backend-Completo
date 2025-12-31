@@ -40,3 +40,9 @@ RESPOSTAS API:
 - 204 No Content → sucesso sem resposta
 
 ROTAS: dizem onde e como alguém pode falar com seu sistema.
+
+SCHEMA: é um contrato que define a estrutura e as regras dos dados.
+Ele especifica quais campos existem, quais são obrigatórios, o tipo de cada campo e possíveis validações (ex: formato UUID).
+É usado para garantir que os dados recebidos estejam corretos antes de serem processados, evitando erros e deixando o código mais seguro e organizado.
+
+VPS: como um mini computador que funciona na nuvem
