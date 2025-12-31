@@ -155,11 +155,10 @@ Ele especifica:
 
 Exemplo prático: 
 
-Schema
+- Schema
 addToWatchListSchema → “movieId tem que ser UUID”
 
-## Validator
-
+- Validator
 validateRequest(addToWatchListSchema) → “verifica se o body respeita o schema”
 
 ## VPS
