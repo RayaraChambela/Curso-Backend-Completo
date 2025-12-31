@@ -1,10 +1,10 @@
 Documentação API HubSpot: https://developers.hubspot.com/docs/guides/crm/understanding-the-crm
 
-##Métodos HTTP
+### Métodos HTTP
 
 Os métodos HTTP são responsáveis pela comunicação entre cliente e servidor.
 
-##GET
+## GET
 
 Busca dados. Não altera nada no servidor, apenas lê informações.
 
@@ -14,7 +14,7 @@ app.get('/users', (req, res) => {
 });
 ```
 
-##POST
+## POST
 
 Cria algo novo. Envia dados no corpo da requisição para criar um novo recurso.
 
@@ -24,7 +24,7 @@ app.post('/users', (req, res) => {
 });
 ```
 
-###PUT
+## PUT
 
 Atualiza um recurso existente (geralmente todos os campos).
 
@@ -34,7 +34,7 @@ app.put('/users/:id', (req, res) => {
 });
 ```
 
-##DELETE
+## DELETE
 
 Remove um recurso existente.
 
@@ -44,13 +44,13 @@ app.delete('/users/:id', (req, res) => {
 });
 ```
 
-##Respostas da API (Status Codes)
+## Respostas da API (Status Codes)
 
 - 200 OK → sucesso padrão
 - 201 Created → recurso criado com sucesso
 - 204 No Content → sucesso sem corpo de resposta
 
-##Rotas (Routes)
+## Rotas (Routes)
 
 As rotas dizem onde e como alguém pode se comunicar com o sistema.
 
@@ -60,7 +60,7 @@ São responsáveis por definir:
 - Qual o método HTTP
 - Quem vai lidar com a request (middlewares + controllers)
 
-##Middlewares
+## Middlewares
 
 Middlewares são filtros no meio do caminho. Executam antes do controller e decidem se a request pode continuar.
 
@@ -74,7 +74,7 @@ Usados para:
 
 Não conhecem a regra de negócio, apenas validam o contexto.
 
-##Validators
+## Validators
 
 Validators definem as regras do formato dos dados. Garantem que os dados recebidos estejam corretos antes de chegar ao controller.
 
@@ -91,7 +91,7 @@ Isso define:
 movieId = deve ser um UUID
 status = só pode assumir valores pré-definidos
 
-##Controllers
+## Controllers
 
 Controllers são o cérebro da aplicação. Aqui fica toda a regra de negócio.
 
@@ -130,7 +130,7 @@ Controllers → executam a lógica
   ↓
 Response
 
-##Schema
+## Schema
 
 Schema é um contrato que define a estrutura e as regras dos dados.
 
@@ -143,7 +143,7 @@ Ele especifica:
 
 É usado para garantir que os dados recebidos estejam corretos antes de serem processados, evitando erros e deixando o código mais seguro e organizado.
 
-##Diferença entre Schema e Validator
+## Diferença entre Schema e Validator
 
     Schema	                 Validator
 Define regras	         Executa a validação
@@ -156,15 +156,15 @@ Exemplo prático:
 Schema
 addToWatchListSchema → “movieId tem que ser UUID”
 
-##Validator
+## Validator
 
 validateRequest(addToWatchListSchema) → “verifica se o body respeita o schema”
 
-##VPS
+## VPS
 
 VPS (Virtual Private Server) é como um mini computador que funciona na nuvem e roda aplicações e APIs continuamente.
 
-##Toda comunicação HTTP é uma API?
+## Toda comunicação HTTP é uma API?
 
 Nem toda comunicação HTTP é uma API, mas toda aplicação moderna que troca dados entre cliente e servidor usa uma API.
 
